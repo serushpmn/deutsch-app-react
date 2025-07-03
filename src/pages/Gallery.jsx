@@ -4,20 +4,22 @@ import TextCard from '../components/TextCard';
 import styles from '../styles/App.module.css';
 
 const levels = [
-  { key: 'all', label: 'همه' },
-  { key: 'beginner', label: 'مبتدی' },
-  { key: 'intermediate', label: 'متوسط' },
-  { key: 'advanced', label: 'پیشرفته' },
+  { key: 'All', label: 'All' },
+  { key: 'A1', label: 'A1' },
+  { key: 'A2', label: 'A2' },
+  { key: 'B1', label: 'B1' },
+  { key: 'B2', label: 'B2' },
+  { key: 'C1', label: 'C1' },
+
 ];
 
 export default function Gallery({ onSelectText }) {
-  const [filter, setFilter] = useState('all');
-  const filteredTexts = filter === 'all' ? texts : texts.filter(t => t.level === filter);
+  const [filter, setFilter] = useState('All');
+  const filteredTexts = filter === 'All' ? texts : texts.filter(t => t.level === filter);
 
   return (
     <main className={styles.container}>
       <section className={styles.filterSection}>
-        <h2>فیلتر بر اساس سطح:</h2>
         <div className={styles.filterButtons}>
           {levels.map(l => (
             <button

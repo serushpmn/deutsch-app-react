@@ -3,7 +3,7 @@ export const texts = [
   {
     id: "1",
     title: { de: "Der erste Tag", fa: "روز اول" },
-    level: "beginner",
+    level: "A1",
     content: [
       { de: "Es war ein schöner Morgen.", fa: "صبح زیبایی بود." },
       { de: "Die Sonne schien hell.", fa: "آفتاب به‌روشنایی می‌تابید." },
@@ -17,7 +17,7 @@ export const texts = [
   {
     id: "2",
     title: { de: "Ein Besuch in Berlin", fa: "بازدیدی از برلین" },
-    level: "intermediate",
+    level: "A2",
     content: [
       { de: "Letztes Jahr besuchte ich Berlin.", fa: "سال گذشته از برلین بازدید کردم." },
       { de: "Die Stadt ist sehr groß und lebendig.", fa: "شهر بسیار بزرگ و زنده‌ای است." },
@@ -32,7 +32,7 @@ export const texts = [
   {
     id: "3",
     title: { de: "Die Zukunft der Technologie", fa: "آینده فناوری" },
-    level: "advanced",
+    level: "B1",
     content: [
       { de: "Die rasante Entwicklung der Technologie prägt unsere Welt.", fa: "توسعه سریع فناوری دنیای ما را شکل می‌دهد." },
       { de: "Künstliche Intelligenz wird immer wichtiger.", fa: "هوش مصنوعی روز به روز مهم‌تر می‌شود." },
@@ -47,7 +47,7 @@ export const texts = [
   {
     id: "4",
     title: { de: "Ein Rezept für Apfelkuchen", fa: "دستور پخت کیک سیب" },
-    level: "beginner",
+    level: "B2",
     content: [
       { de: "Man braucht Äpfel, Mehl und Zucker.", fa: "سیب، آرد و شکر لازم است." },
       { de: "Zuerst die Äpfel schälen und schneiden.", fa: "ابتدا سیب‌ها را پوست کنده و خرد کنید." },
@@ -61,7 +61,7 @@ export const texts = [
   {
     id: "5",
     title: { de: "Die Geschichte Deutschlands", fa: "تاریخ آلمان" },
-    level: "advanced",
+    level: "C1",
     content: [
       { de: "Die deutsche Geschichte ist reich und komplex.", fa: "تاریخ آلمان غنی و پیچیده است." },
       { de: "Sie umfasst viele Epochen und Ereignisse.", fa: "این شامل دوره‌ها و رویدادهای بسیاری است." },

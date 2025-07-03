@@ -9,12 +9,12 @@ export default function TextCard({ text, onClick }) {
       onClick={onClick}
     >
       <div className={styles.textCardHeader}>
-        <h3 className={styles.textCardTitle}>{text.title.fa}</h3>
+        <h3 className={styles.textCardTitle}>{text.title.de}</h3>
         <span
           className={styles.textCardLevel}
           style={{ background: `var(--level-${text.level})` }}
         >
-          {text.level === 'beginner' ? 'مبتدی' : text.level === 'intermediate' ? 'متوسط' : 'پیشرفته'}
+          {text.level}
         </span>
       </div>
       <div className={styles.textCardContent}>

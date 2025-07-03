@@ -1,39 +1,54 @@
 /* Main app styles, supports dark/light and RTL/LTR */
 :root {
-  --background-color: #f5f7fa;
-  --card-background: rgba(255,255,255,0.85);
-  --text-color: #23272f;
-  --header-background: #6750a4;
-  --primary-color: #6750a4;
-  --secondary-color: #00bcd4;
-  --border-color: #e0e0e0;
-  --shadow-color: rgba(103,80,164,0.10);
-  --level-beginner: #4CAF50;
-  --level-intermediate: #FFC107;
-  --level-advanced: #F44336;
-  --toggle-bg: #e8eaf6;
-  --toggle-slider-bg: #fff;
-  --progress-bar-bg: #6750a4;
-  --button-hover-bg: rgba(103,80,164,0.08);
-  --glass-blur: blur(12px);
+  /* پایه‌ها */
+  --background-color: #f5f7f6;        /* روشن، خنثی */
+  --card-background: rgba(255, 255, 255, 0.88);
+  --text-color: #1e2a23;
+
+  --header-background: #0f766e;       /* primary */
+  --primary-color: #0f766e;           /* teal600 */
+  --primary-color-dark: #115e59;      /* teal800 */
+  --secondary-color: #d6ad60;         /* sand/golden brown */
+
+  --shadow-color: rgba(0, 0, 0, 0.12);
+  --border-color: #dde3e0;
+
+  /* سطح‌ها */
+  --level-A1: #7fc8a9;   /* ملایم، سطح پایین */
+  --level-A2: #5dbb98;
+  --level-B1: #fbc252;   /* زرد گرم */
+  --level-B2: #f59e0b;
+  --level-C1: #f28b82;   /* قرمز ملایم */
+  --level-C2: #d93025;
+
+  /* اجزای دیگر */
+  --toggle-bg: #d1fae5;
+  --toggle-slider-bg: #ffffff;
+
+  --progress-bar-bg: #0f766e;
+
+  --button-hover-bg: rgba(15, 118, 110, 0.08);
+  --glass-blur: blur(14px);
 }
+
+
 
 body.dark {
   --background-color: #181c24;
-  --card-background: rgba(34,36,40,0.85);
+  --card-background: rgba(34, 36, 40, 0.85);
   --text-color: #e0e0e0;
   --header-background: #2d223c;
   --primary-color: #b69df8;
   --secondary-color: #00bcd4;
   --border-color: #3a2e4e;
-  --shadow-color: rgba(182,157,248,0.18);
-  --level-beginner: #66BB6A;
-  --level-intermediate: #FFD54F;
-  --level-advanced: #EF5350;
+  --shadow-color: rgba(182, 157, 248, 0.18);
+  --level-beginner: #66bb6a;
+  --level-intermediate: #ffd54f;
+  --level-advanced: #ef5350;
   --toggle-bg: #3a2e4e;
   --toggle-slider-bg: #fff;
   --progress-bar-bg: #b69df8;
-  --button-hover-bg: rgba(182,157,248,0.10);
+  --button-hover-bg: rgba(182, 157, 248, 0.1);
   --glass-blur: blur(16px);
 }
 
@@ -41,7 +56,7 @@ body.dark {
   background: var(--background-color);
   color: var(--text-color);
   min-height: 100vh;
-  font-family: 'Vazirmatn', 'Inter', 'Roboto', sans-serif;
+  font-family: "Vazirmatn", "Inter", "Roboto", sans-serif;
   transition: background 0.3s, color 0.3s;
 }
 
@@ -50,7 +65,11 @@ body.dark {
 }
 
 .header {
-  background: linear-gradient(90deg, var(--header-background) 60%, var(--primary-color) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--header-background) 60%,
+    var(--primary-color) 100%
+  );
   color: #fff;
   padding: 28px 32px;
   display: flex;
@@ -68,7 +87,7 @@ body.dark {
   font-size: 2.2em;
   font-weight: 800;
   letter-spacing: 1px;
-  text-shadow: 0 2px 12px rgba(0,0,0,0.12);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
   margin: 0;
   display: flex;
   align-items: center;
@@ -79,7 +98,7 @@ body.dark {
   display: flex;
   align-items: center;
   gap: 14px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 16px;
   padding: 6px 18px;
   box-shadow: 0 2px 8px var(--shadow-color);
@@ -94,7 +113,7 @@ body.dark {
 
 .filterSection {
   margin-bottom: 36px;
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   border-radius: 18px;
   padding: 18px 20px;
   box-shadow: 0 2px 12px var(--shadow-color);
@@ -108,30 +127,47 @@ body.dark {
 }
 
 .filterButtons button {
-  background: linear-gradient(90deg, var(--primary-color) 60%, var(--secondary-color) 100%);
+  background-color: var(--primary-color);
   color: #fff;
   border: none;
-  border-radius: 22px;
-  padding: 10px 28px;
-  font-size: 1.08em;
+  border-radius: 24px;
+  padding: 10px 26px;
+  font-size: 1.05em;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
-  box-shadow: 0 2px 8px var(--shadow-color);
   font-weight: 600;
   outline: none;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.25s ease, box-shadow 0.25s ease,
+    background-color 0.25s ease;
+
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s forwards;
 }
 
-.active {
-  background: linear-gradient(90deg, var(--secondary-color) 60%, var(--primary-color) 100%);
-  color: #fff;
-  border: 2px solid #fff;
-  transform: scale(1.08);
-}
-
+/* جلوه‌ی هاور */
 .filterButtons button:hover {
-  background: var(--button-hover-bg);
-  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  background-color: var(--primary-color-dark); /* تعریفش رو پایین می‌نویسم */
 }
+
+/* جلوه‌ی فعال (مثلاً وقتی فیلتر انتخاب شده است) */
+.filterButtons .active {
+  background-color: var(--secondary-color);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(0);
+}
+
+/* انیمیشن fade + slide */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .textGallery {
   display: grid;
@@ -159,7 +195,7 @@ body.dark {
 .textCard:hover {
   transform: translateY(-10px) scale(1.04);
   box-shadow: 0 12px 48px var(--shadow-color);
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   border-color: var(--primary-color);
 }
 
@@ -218,7 +254,11 @@ body.dark {
 }
 
 .toggleTranslationBtn {
-  background: linear-gradient(90deg, var(--primary-color) 60%, var(--secondary-color) 100%);
+  background: linear-gradient(
+    90deg,
+    var(--primary-color) 60%,
+    var(--secondary-color) 100%
+  );
   color: #fff;
   border: none;
   border-radius: 18px;
@@ -238,7 +278,7 @@ body.dark {
 }
 
 .backBtn {
-  background: rgba(255,255,255,0.18);
+  background: rgba(255, 255, 255, 0.18);
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
   border-radius: 16px;
@@ -275,7 +315,7 @@ body.dark {
 
 .textParagraph:hover {
   box-shadow: 0 8px 32px var(--shadow-color);
-  background: rgba(255,255,255,1);
+  background: rgba(255, 255, 255, 1);
 }
 
 .germanText {
@@ -290,4 +330,76 @@ body.dark {
   color: var(--secondary-color);
   margin: 0;
   transition: opacity 0.2s;
+}
+.themeToggle {
+  --toggle-width: 60px;
+  --toggle-height: 32px;
+  --toggle-padding: 4px;
+  --toggle-border-radius: 16px;
+  --toggle-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin: 0;
+  outline: none;
+}
+
+.toggleTrack {
+  position: relative;
+  width: var(--toggle-width);
+  height: var(--toggle-height);
+  background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  border-radius: var(--toggle-border-radius);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: var(--toggle-transition);
+}
+
+.dark .toggleTrack {
+  background: linear-gradient(145deg, #2d223c, #3a2e4e);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3),
+    0 4px 8px rgba(182, 157, 248, 0.2);
+}
+
+.toggleThumb {
+  position: absolute;
+  top: var(--toggle-padding);
+  left: var(--toggle-padding);
+  width: calc(var(--toggle-height) - (var(--toggle-padding) * 2));
+  height: calc(var(--toggle-height) - (var(--toggle-padding) * 2));
+  background: linear-gradient(145deg, #ffffff, #f0f0f0);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: var(--toggle-transition);
+  transform: translateX(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.dark .toggleThumb {
+  transform: translateX(calc(var(--toggle-width) - var(--toggle-height)));
+  background: linear-gradient(145deg, #b69df8, #9a7ff5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.icon {
+  font-size: 16px;
+  color: #6750a4;
+  transition: var(--toggle-transition);
+}
+
+.dark .icon {
+  color: white;
+}
+
+.toggleLabel {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+  transition: color 0.3s;
+  user-select: none;
 }
