@@ -22,9 +22,9 @@ export default function Detail({ textId, onBack }) {
   return (
     <main className={styles.container}>
       <button className={styles.backBtn} onClick={onBack}>
-        بازگشت
+        Zuruck
       </button>
-      <h1>{text.title.fa}</h1>
+      <h1>{text.title.de}</h1>
       <div className={styles.progressContainer}>
         {/* Progress bar can be implemented with scroll event if needed */}
       </div>
@@ -33,7 +33,7 @@ export default function Detail({ textId, onBack }) {
           className={styles.toggleTranslationBtn}
           onClick={() => setShowTranslations(v => !v)}
         >
-          {showTranslations ? 'مخفی کردن همه ترجمه‌ها' : 'نمایش همه ترجمه‌ها'}
+          {showTranslations ? 'Nur Deutsch' : 'Mit Persich'}
         </button>
       </div>
       <section className={styles.textContent}>
