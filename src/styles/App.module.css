@@ -1,0 +1,219 @@
+/* Main app styles, supports dark/light and RTL/LTR */
+:root {
+  --background-color: #f0f2f5;
+  --card-background: #fff;
+  --text-color: #333;
+  --header-background: #6a0572;
+  --primary-color: #9d00ff;
+  --secondary-color: #00bcd4;
+  --border-color: #e0e0e0;
+  --shadow-color: rgba(0,0,0,0.1);
+  --level-beginner: #4CAF50;
+  --level-intermediate: #FFC107;
+  --level-advanced: #F44336;
+  --toggle-bg: #ccc;
+  --toggle-slider-bg: #fff;
+  --progress-bar-bg: #4CAF50;
+  --button-hover-bg: rgba(0,0,0,0.05);
+}
+
+body.dark {
+  --background-color: #1a1a2e;
+  --card-background: #16213e;
+  --text-color: #e0e0e0;
+  --header-background: #0f3460;
+  --primary-color: #e94560;
+  --secondary-color: #533483;
+  --border-color: #2a2a4a;
+  --shadow-color: rgba(0,0,0,0.4);
+  --level-beginner: #66BB6A;
+  --level-intermediate: #FFD54F;
+  --level-advanced: #EF5350;
+  --toggle-bg: #888;
+  --toggle-slider-bg: #fff;
+  --progress-bar-bg: #e94560;
+  --button-hover-bg: rgba(255,255,255,0.1);
+}
+
+.app {
+  background: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  direction: rtl;
+  font-family: 'Vazirmatn', 'Inter', sans-serif;
+}
+
+.ltr {
+  direction: ltr;
+}
+
+.header {
+  background: var(--header-background);
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.title {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+
+.themeSwitch {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 32px auto;
+  padding: 0 20px;
+}
+
+.filterSection {
+  margin-bottom: 32px;
+}
+
+.filterButtons {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.filterButtons button {
+  background: var(--card-background);
+  color: var(--text-color);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.active {
+  background: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+.filterButtons button:hover {
+  background: var(--button-hover-bg);
+}
+
+.textGallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 28px;
+}
+
+.textCard {
+  background: var(--card-background);
+  border-radius: 18px;
+  box-shadow: 0 4px 16px var(--shadow-color);
+  padding: 24px 20px;
+  cursor: pointer;
+  transition: transform 0.18s, box-shadow 0.18s;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 160px;
+  position: relative;
+  animation: fadeInUp 0.5s both;
+}
+
+.textCard:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 32px var(--shadow-color);
+  border-color: var(--primary-color);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.textCardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.textCardTitle {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin: 0;
+}
+
+.textCardLevel {
+  padding: 4px 14px;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 500;
+  margin-right: 8px;
+}
+
+.textCardContent {
+  font-size: 1em;
+  color: var(--text-color);
+  margin-top: 6px;
+}
+
+.progressContainer {
+  width: 100%;
+  height: 8px;
+  background: var(--border-color);
+  border-radius: 6px;
+  margin: 18px 0 24px 0;
+  overflow: hidden;
+}
+
+.globalToggleContainer {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.textContent {
+  margin-top: 18px;
+}
+
+.textParagraph {
+  background: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px var(--shadow-color);
+  padding: 18px 16px;
+  margin-bottom: 18px;
+  transition: box-shadow 0.2s;
+}
+
+.textParagraph:hover {
+  box-shadow: 0 6px 24px var(--shadow-color);
+}
+
+.germanText {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: var(--primary-color);
+  margin: 0 0 8px 0;
+}
+
+.persianText {
+  font-size: 1em;
+  color: var(--secondary-color);
+  margin: 0;
+  transition: opacity 0.2s;
+}

@@ -1,0 +1,9 @@
+/* Import this in main.jsx for global resets if needed */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Vazirmatn', 'Inter', sans-serif;
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
