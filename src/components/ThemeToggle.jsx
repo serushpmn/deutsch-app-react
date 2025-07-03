@@ -11,7 +11,7 @@ export default function ThemeToggle({ dark, onToggle }) {
           onChange={onToggle}
         />
         <span style={{ marginRight: 8 }}>
-          حالت شب
+          Night Mode
         </span>
       </label>
     </div>
