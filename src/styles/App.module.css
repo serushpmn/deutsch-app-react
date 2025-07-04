@@ -3,22 +3,18 @@
   --background-color: #f5f7f6;
   --card-background: #fff;
   --text-color: #003f5c;
-
   --header-background: #58508d;
   --primary-color: #bc5090;
   --primary-color-dark: #ff6361;
   --secondary-color: #ffa600;
-
   --shadow-color: rgba(0, 0, 0, 0.15);
   --border-color: #bc5090;
-
   --level-A1: #003f5c;
   --level-A2: #58508d;
   --level-B1: #bc5090;
   --level-B2: #ff6361;
   --level-C1: #ffa600;
   --level-C2: #003f5c;
-
   --progress-bar-bg: #bc5090;
   --button-hover-bg: #ff6361;
   --glass-blur: blur(14px);
@@ -116,7 +112,7 @@
 .textCard {
   background: var(--card-background);
   border-radius: 22px;
-  padding: 28px 22px;
+  padding: 15px;
   cursor: pointer;
   transition:  all 0.2s ease-in-out;
   display: flex;
@@ -138,16 +134,46 @@
 
 .textCardHeader {
   display: flex;
+  gap: 5px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-bottom: 10px;
 }
-
+.filterButton{
+   background:var(--primary-color);
+   cursor: pointer;
+   border:none;
+   border-radius: .5rem;
+   color:#fff ;
+   padding: 10px
+}
+.filterButton:hover{
+  background:var(--button-hover-bg);
+}
 .textCardTitle {
-  font-size: 1.25em;
+  font-size: 1.2rem;
   font-weight: 700;
   margin: 0;
 }
+
+.printButton{
+  background-color: #fff;
+  box-sizing: border-box;
+  color: #111;
+  border-radius: 0.5rem;
+ border: 1px  solid #d4d4d4;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 10px;
+  font-weight: 700;
+}
+
+
+.printButton:hover {
+background:var(--card-background);
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
 
 .textCardLevel {
   padding: 5px 16px;
@@ -159,9 +185,9 @@
 }
 
 .textCardContent {
-  font-size: 1.08em;
+  font-size: .8 rem;
+  font-weight: 600;
   color: var(--text-color);
-  margin-top: 8px;
 }
 
 .progressContainer {
@@ -262,19 +288,76 @@
 }
 
 .textTag {
-  background: var(--button-hover-bg);
+  /* background: var(--card-background); */
   color: var(--primary-color);
-  border-radius: 12px;
   padding: 3px 12px;
   font-size: 0.95em;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-  border: 1px solid var(--primary-color);
   user-select: none;
 }
 
 .textTag:hover {
-  background: var(--primary-color);
+  text-decoration: underline;
+}
+
+.fabBar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.fabBtn {
+  pointer-events: auto;
+  position: fixed;
+  bottom: 24px;
+  border: none;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  box-shadow: 0 4px 16px var(--shadow-color);
+  background: var(--border-color);
   color: #fff;
+  font-size: 1 rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  outline: none;
+  margin: 0 12px;
+}
+
+.fabBtn:hover {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+.fabBack {
+  left: 24px;
+}
+
+.fabToggle {
+  right: 24px;
+}
+
+@media (max-width: 600px) {
+  .fabBtn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.1em;
+  }
+  .fabBack {
+    left: 12px;
+  }
+  .fabToggle {
+    right: 12px;
+  }
+}
+
+body {
+  padding-bottom: 60px; /* Prevent content from being hidden behind the bar */
 }

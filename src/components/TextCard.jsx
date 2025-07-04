@@ -13,7 +13,10 @@ export default function TextCard({ text, onClick, onTagClick }) {
       onClick={onClick}
     >
       <div className={styles.textCardHeader}>
+        <div>
         <h3 className={styles.textCardTitle}>{text.title.de}</h3>
+        <h3 className={styles.textCardTitle}>{text.title.fa}</h3>
+        </div>
         <span
           className={styles.textCardLevel}
           style={{ background: `var(--level-${text.level})` }}
