@@ -243,13 +243,38 @@
   font-size: 1.15em;
   font-weight: 600;
   color: #00202e;
-  margin: 0 0 10px 0;
+  /* margin-bottom: 5px; */
 }
 
 .persianText {
   font-size: 1.05em;
   font-weight: 500;
   color: #00344b;
-  margin: 0;
+  margin-bottom: 10px;
   transition: opacity 0.92s;
+}
+
+.textCardTags {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.textTag {
+  background: var(--button-hover-bg);
+  color: var(--primary-color);
+  border-radius: 12px;
+  padding: 3px 12px;
+  font-size: 0.95em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  border: 1px solid var(--primary-color);
+  user-select: none;
+}
+
+.textTag:hover {
+  background: var(--primary-color);
+  color: #fff;
 }

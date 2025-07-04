@@ -15,7 +15,11 @@ const levels = [
 
 export default function Gallery({ onSelectText }) {
   const [filter, setFilter] = useState('All');
-  const filteredTexts = filter === 'All' ? texts : texts.filter(t => t.level === filter);
+  const [tagFilter, setTagFilter] = useState(null);
+
+  let filteredTexts = texts;
+  if (filter !== 'All') filteredTexts = filteredTexts.filter(t => t.level === filter);
+  if (tagFilter) filteredTexts = filteredTexts.filter(t => Array.isArray(t.tag) ? t.tag.includes(tagFilter) : t.tag === tagFilter);
 
   return (
     <main className={styles.container}>
@@ -31,6 +35,16 @@ export default function Gallery({ onSelectText }) {
             </button>
           ))}
         </div>
+        {tagFilter && (
+          <div style={{marginTop: 12}}>
+            <span style={{color: 'var(--primary-color)', fontWeight: 600}}>
+              فیلتر بر اساس تگ: #{tagFilter}
+            </span>
+            <button style={{marginRight: 12}} onClick={() => setTagFilter(null)}>
+              حذف فیلتر تگ
+            </button>
+          </div>
+        )}
       </section>
       <section className={styles.textGallery}>
         {filteredTexts.length === 0 ? (
@@ -39,7 +53,7 @@ export default function Gallery({ onSelectText }) {
           </p>
         ) : (
           filteredTexts.map(text => (
-            <TextCard key={text.id} text={text} onClick={() => onSelectText(text.id)} />
+            <TextCard key={text.id} text={text} onClick={() => onSelectText(text.id)} onTagClick={setTagFilter} />
           ))
         )}
       </section>
