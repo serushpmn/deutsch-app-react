@@ -1,47 +1,26 @@
-/* Main app styles, supports dark/light and RTL/LTR */
+/* Main app styles, supports new color palette */
 :root {
-  /* پایه‌ها */
-  --background-color: #f5f7f6;        /* روشن، خنثی */
-  --card-background: rgba(255, 255, 255, 0.88);
-  --text-color: #1e2a23;
+  --background-color: #f5f7f6;
+  --card-background: #fff;
+  --text-color: #003f5c;
 
-  --header-background: #0f766e;       /* primary */
-  --primary-color: #0f766e;           /* teal600 */
-  --primary-color-dark: #115e59;      /* teal800 */
-  --secondary-color: #d6ad60;         /* sand/golden brown */
+  --header-background: #58508d;
+  --primary-color: #bc5090;
+  --primary-color-dark: #ff6361;
+  --secondary-color: #ffa600;
 
-  --shadow-color: rgba(0, 0, 0, 0.12);
-  --border-color: #dde3e0;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --border-color: #bc5090;
 
-  /* سطح‌ها */
-  --level-A1: #7fc8a9;   /* ملایم، سطح پایین */
-  --level-A2: #5dbb98;
-  --level-B1: #fbc252;   /* زرد گرم */
-  --level-B2: #f59e0b;
-  --level-C1: #f28b82;   /* قرمز ملایم */
-  --level-C2: #d93025;
+  --level-A1: #003f5c;
+  --level-A2: #58508d;
+  --level-B1: #bc5090;
+  --level-B2: #ff6361;
+  --level-C1: #ffa600;
+  --level-C2: #003f5c;
 
-  /* اجزای دیگر */
-  --toggle-bg: #d1fae5;
-  --toggle-slider-bg: #ffffff;
-
-  --progress-bar-bg: #0f766e;
-
-  --button-hover-bg: rgba(15, 118, 110, 0.08);
-  --glass-blur: blur(14px);
-}
-
-.dark {
-  --background-color: #121f1e;
-  --text-color: #e0f2f1;
-  --card-background: rgba(28, 41, 38, 0.85);
-  --primary-color: #14b8a6;
-  --primary-color-dark: #0f766e;
-  --secondary-color: #d6ad60;
-  --header-background: #0f766e;
-  --shadow-color: rgba(0, 0, 0, 0.4);
-  --border-color: #274742;
-  --button-hover-bg: rgba(20, 184, 166, 0.12);
+  --progress-bar-bg: #bc5090;
+  --button-hover-bg: #ff6361;
   --glass-blur: blur(14px);
 }
 
@@ -53,13 +32,9 @@
   transition: background 0.3s, color 0.3s;
 }
 
-.ltr {
-  direction: ltr;
-}
-
 .header {
   background: var(--header-background);
-  color: white;
+  color: #fff;
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
@@ -75,17 +50,6 @@
   margin: 0;
 }
 
-.themeSwitch {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 6px 18px;
-  box-shadow: 0 2px 8px var(--shadow-color);
-  backdrop-filter: var(--glass-blur);
-}
-
 .container {
   max-width: 1200px;
   margin: 40px auto;
@@ -94,7 +58,7 @@
 
 .filterSection {
   margin-bottom: 36px;
-  background: rgba(255, 255, 255, 0.18);
+  background: #f5f7f6;
   border-radius: 18px;
   padding: 18px 20px;
   box-shadow: 0 2px 12px var(--shadow-color);
@@ -117,38 +81,31 @@
   cursor: pointer;
   font-weight: 600;
   outline: none;
-
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  transition: transform 0.25s ease, box-shadow 0.25s ease,
-    background-color 0.25s ease;
-
+  transition: transform 0.25s, box-shadow 0.25s, background-color 0.25s;
   opacity: 0;
   transform: translateY(10px);
   animation: fadeInUp 0.4s forwards;
 }
 
-/* جلوه‌ی هاور */
 .filterButtons button:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-  background-color: var(--primary-color-dark); /* تعریفش رو پایین می‌نویسم */
+  background-color: var(--primary-color-dark);
 }
 
-/* جلوه‌ی فعال (مثلاً وقتی فیلتر انتخاب شده است) */
 .filterButtons .active {
   background-color: var(--secondary-color);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   transform: translateY(0);
 }
 
-/* انیمیشن fade + slide */
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 
 .textGallery {
   display: grid;
@@ -159,11 +116,9 @@
 .textCard {
   background: var(--card-background);
   border-radius: 22px;
-  box-shadow: 0 6px 32px var(--shadow-color);
   padding: 28px 22px;
   cursor: pointer;
-  transition: transform 0.18s, box-shadow 0.18s, background 0.18s;
-  border: 1.5px solid var(--border-color);
+  transition:  all 0.2s ease-in-out;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -176,19 +131,9 @@
 .textCard:hover {
   transform: translateY(-10px) scale(1.04);
   box-shadow: 0 12px 48px var(--shadow-color);
-  background: rgba(255, 255, 255, 0.95);
+  /* background: #ffa6000a; */
   border-color: var(--primary-color);
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  scale: 1.01;
 }
 
 .textCardHeader {
@@ -210,7 +155,6 @@
   color: #fff;
   font-size: 1em;
   font-weight: 600;
-  margin-right: 10px;
   box-shadow: 0 1px 6px var(--shadow-color);
 }
 
@@ -235,18 +179,14 @@
 }
 
 .toggleTranslationBtn {
-  background: linear-gradient(
-    90deg,
-    var(--primary-color) 60%,
-    var(--secondary-color) 100%
-  );
+  background: var(--primary-color) ;
   color: #fff;
   border: none;
   border-radius: 18px;
   padding: 10px 28px;
   font-size: 1.08em;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.15s;
+  transition: background 0.5s, color 0.5s, box-shadow 0.5s, transform 0.5s;
   box-shadow: 0 2px 8px var(--shadow-color);
   font-weight: 600;
   outline: none;
@@ -255,11 +195,11 @@
 
 .toggleTranslationBtn:hover {
   background: var(--button-hover-bg);
-  color: var(--primary-color);
+  color: #fff;
 }
 
 .backBtn {
-  background: rgba(255, 255, 255, 0.18);
+  background: #fff;
   color: var(--primary-color);
   border: 2px solid var(--primary-color);
   border-radius: 16px;
@@ -270,21 +210,21 @@
   margin-bottom: 18px;
   margin-top: 8px;
   box-shadow: 0 2px 8px var(--shadow-color);
-  transition: background 0.2s, color 0.2s, border 0.2s;
+  transition: background 0.5s, color 0.5s, border 0.5s;
   backdrop-filter: var(--glass-blur);
 }
 
 .backBtn:hover {
   background: var(--primary-color);
   color: #fff;
-  border-color: #fff;
+  border-color: var(--primary-color);
 }
 
 .textContent {
   margin-top: 22px;
 }
 
-.textParagraph {
+.textContent {
   background: var(--card-background);
   border-radius: 16px;
   box-shadow: 0 2px 12px var(--shadow-color);
@@ -294,93 +234,22 @@
   backdrop-filter: var(--glass-blur);
 }
 
-.textParagraph:hover {
+.textContent:hover {
   box-shadow: 0 8px 32px var(--shadow-color);
-  background: rgba(255, 255, 255, 1);
+
 }
 
 .germanText {
   font-size: 1.15em;
   font-weight: 600;
-  color: var(--primary-color);
+  color: #00202e;
   margin: 0 0 10px 0;
 }
 
 .persianText {
   font-size: 1.05em;
-  color: var(--secondary-color);
+  font-weight: 500;
+  color: #00344b;
   margin: 0;
-  transition: opacity 0.2s;
-}
-.themeToggle {
-  --toggle-width: 60px;
-  --toggle-height: 32px;
-  --toggle-padding: 4px;
-  --toggle-border-radius: 16px;
-  --toggle-transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  margin: 0;
-  outline: none;
-}
-
-.toggleTrack {
-  position: relative;
-  width: var(--toggle-width);
-  height: var(--toggle-height);
-  background: linear-gradient(145deg, #e6e6e6, #ffffff);
-  border-radius: var(--toggle-border-radius);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: var(--toggle-transition);
-}
-
-.dark .toggleTrack {
-  background: linear-gradient(145deg, #2d223c, #3a2e4e);
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3),
-    0 4px 8px rgba(182, 157, 248, 0.2);
-}
-
-.toggleThumb {
-  position: absolute;
-  top: var(--toggle-padding);
-  left: var(--toggle-padding);
-  width: calc(var(--toggle-height) - (var(--toggle-padding) * 2));
-  height: calc(var(--toggle-height) - (var(--toggle-padding) * 2));
-  background: linear-gradient(145deg, #ffffff, #f0f0f0);
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  transition: var(--toggle-transition);
-  transform: translateX(0);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.dark .toggleThumb {
-  transform: translateX(calc(var(--toggle-width) - var(--toggle-height)));
-  background: linear-gradient(145deg, #b69df8, #9a7ff5);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.icon {
-  font-size: 16px;
-  color: #6750a4;
-  transition: var(--toggle-transition);
-}
-
-.dark .icon {
-  color: white;
-}
-
-.toggleLabel {
-  font-weight: 600;
-  font-size: 1rem;
-  color: var(--text-color);
-  transition: color 0.3s;
-  user-select: none;
+  transition: opacity 0.92s;
 }
