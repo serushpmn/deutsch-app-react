@@ -164,6 +164,7 @@ h1, h2 {
   font-weight: 800;
 }
 .textCardTitleFa {
+  direction: rtl;
   margin-top: 5px;
   padding: 0;
   font-size: 0.8rem;
