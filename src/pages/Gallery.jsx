@@ -38,10 +38,10 @@ export default function Gallery({ onSelectText }) {
         {tagFilter && (
           <div style={{marginTop: 12}}>
             <span style={{color: 'var(--primary-color)', fontWeight: 600, margin: "0 10px"}}>
-              Tags #{tagFilter}
+              Tags: {tagFilter}
             </span>
             <button className={styles.filterButton} onClick={() => setTagFilter(null)}>
-              Loschen Tags
+            X
             </button>
           </div>
         )}

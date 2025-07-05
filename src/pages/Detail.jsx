@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { texts } from '../data/texts';
-import styles from '../styles/App.module.css';
+import React, { useState, useEffect } from "react";
+import { texts } from "../data/texts";
+import styles from "../styles/App.module.css";
 
 export default function Detail({ textId, onBack }) {
-  const text = texts.find(t => t.id === textId);
+  const text = texts.find((t) => t.id === textId);
   const [showTranslations, setShowTranslations] = useState(false);
   const [openPersian, setOpenPersian] = useState([]);
   const [printMode, setPrintMode] = useState(null); // null | 'de' | 'both'
@@ -12,8 +12,8 @@ export default function Detail({ textId, onBack }) {
     setOpenPersian(Array(text?.content.length || 0).fill(false));
   }, [textId]);
 
-  const handleParagraphClick = idx => {
-    setOpenPersian(prev => {
+  const handleParagraphClick = (idx) => {
+    setOpenPersian((prev) => {
       const next = [...prev];
       next[idx] = !next[idx];
       return next;
@@ -31,50 +31,61 @@ export default function Detail({ textId, onBack }) {
   if (!text) {
     return (
       <main className={styles.container}>
-        <div className={styles.fabBar}>
-          <button className={`${styles.fabBtn} ${styles.fabBack}`} onClick={onBack} title="بازگشت">Back</button>
-        </div>
-        <p style={{ textAlign: 'center', color: 'var(--text-color)', marginTop: 80 }}>
+        <p
+          style={{
+            textAlign: "center",
+            color: "var(--text-color)",
+            marginTop: 80,
+          }}
+        >
           متن مورد نظر یافت نشد.
         </p>
+        <div className={styles.fabBar}></div>
       </main>
     );
   }
 
   return (
     <main className={styles.container}>
-      <div className={styles.fabBar}>
-        <button
-          className={`${styles.fabBtn} ${styles.fabBack}`}
-          onClick={onBack}
-          title="بازگشت"
-        >Back</button>
-        <button
-          className={`${styles.fabBtn} ${styles.fabToggle}`}
-          onClick={() => setShowTranslations(v => !v)}
-          title={showTranslations ? 'مخفی کردن همه ترجمه‌ها' : 'نمایش همه ترجمه‌ها'}
-        >{showTranslations ? 'Hide' : 'Show'}</button>
-      </div>
       <h1>{text.title.de}</h1>
       <h2>{text.title.fa}</h2>
-      <div style={{ display: 'flex', gap: 12, margin: '16px 0' }}>
-        <button className={styles.printButton} onClick={() => handlePrint('de')}>Print Deutsch</button>
-        <button className={styles.printButton} onClick={() => handlePrint('both')}>Print Deutsch + Persisch</button>
+
+      <div style={{ display: "flex", gap: 12, margin: "16px 0" }}>
+        <button
+          className={styles.printButton}
+          onClick={() => handlePrint("de")}
+        >
+          Print Deutsch
+        </button>
+        <button
+          className={styles.printButton}
+          onClick={() => handlePrint("both")}
+        >
+          Print Deutsch + Persisch
+        </button>
       </div>
+
       <div className={styles.progressContainer}></div>
 
-      {/* ✅ محتوای قابل چاپ فقط این div خواهد بود */}
+      {/* ✅ بخش پرینت‌شدنی */}
       <div className="print-root">
         <section className={styles.textContent}>
           {text.content.map((p, i) => (
-            <div key={i} className={styles.textParagraph}
-              style={printMode ? { margin: 0, padding: 0, boxShadow: 'none', border: 'none' } : {}}>
+            <div
+              key={i}
+              className={styles.textParagraph}
+              style={
+                printMode
+                  ? { margin: 0, padding: 0, boxShadow: "none", border: "none" }
+                  : {}
+              }
+            >
               <p
                 className={styles.germanText}
                 dir="ltr"
                 lang="de"
                 onClick={() => handleParagraphClick(i)}
-                style={{ cursor: 'pointer', userSelect: 'none' }}
+                style={{ cursor: "pointer", userSelect: "none" }}
                 title="ترجمه / übersetzung"
               >
                 {p.de}
@@ -85,15 +96,15 @@ export default function Detail({ textId, onBack }) {
                 lang="fa"
                 style={{
                   display:
-                    printMode === 'both'
-                      ? 'block'
-                      : printMode === 'de'
-                      ? 'none'
+                    printMode === "both"
+                      ? "block"
+                      : printMode === "de"
+                      ? "none"
                       : showTranslations || openPersian[i]
-                      ? 'block'
-                      : 'none',
+                      ? "block"
+                      : "none",
                   fontWeight: printMode ? 500 : undefined,
-                  color: printMode ? '#000' : undefined,
+                  color: printMode ? "#000" : undefined,
                 }}
               >
                 {p.fa}
@@ -103,7 +114,27 @@ export default function Detail({ textId, onBack }) {
         </section>
       </div>
 
-      {/* 🔽 استایل مخصوص پرینت */}
+      {/* ✅ دکمه‌های شناور */}
+      <div className={styles.fabBar}>
+        <button
+          className={`${styles.fabBtn} ${styles.fabBack}`}
+          onClick={onBack}
+          title="بازگشت"
+        >
+          Back
+        </button>
+        <button
+          className={`${styles.fabBtn} ${styles.fabToggle}`}
+          onClick={() => setShowTranslations((v) => !v)}
+          title={
+            showTranslations ? "مخفی کردن همه ترجمه‌ها" : "نمایش همه ترجمه‌ها"
+          }
+        >
+          {showTranslations ? "Deutsch" : "فارسی"}
+        </button>
+      </div>
+
+      {/* ✅ استایل پرینت */}
       <style>{`
         @media print {
           body * {
@@ -151,6 +182,7 @@ export default function Detail({ textId, onBack }) {
             background: #fff !important;
           }
         }
+
         @page {
           size: A4 portrait;
           margin: 0.7cm;
